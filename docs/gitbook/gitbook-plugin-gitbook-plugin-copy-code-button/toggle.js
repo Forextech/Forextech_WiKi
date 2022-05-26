@@ -55,8 +55,8 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
     $("pre").each(function(){
       $(this).css("position", "relative");
 
-      var $copyCodeButton = $("<button class='copy-code-button'>Copy</button>");
-      $copyCodeButton.css({"position": "absolute", "top": "5px", "right": "5px", "padding": "3px", "background-color":"#313E4E", "color":"white", "border-radius": "5px" , "-moz-border-radius": "5px", "-webkit-border-radius": "5px", "border": "2px solid #CCCCCC"});
+      var $copyCodeButton = $("<button class='copy-code-button'>コピー</button>");
+      $copyCodeButton.css({"position": "absolute", "top": "5px", "right": "5px", "padding": "3px", "background-color":"#0c0c0c", "color":"#e0e0e0", "border-radius": "5px" , "-moz-border-radius": "5px", "-webkit-border-radius": "5px", "border": "2px solid #161616"});
       $copyCodeButton.click(function(){
         var $codeContainer = $(this).siblings("code");
         if($codeContainer) {
@@ -65,17 +65,17 @@ require(["gitbook", "jQuery"], function(gitbook, $) {
 
           var buttonNewText = "";
           if(copyToClipboard(selectedText) == true){
-            buttonNewText = "Copied";
+            buttonNewText = "コピー完了";
             selectElementText($codeContainer.get(0));
           } else {
-            buttonNewText = "Unable to copy";
+            buttonNewText = "コピー";
             selectElementText($codeContainer.get(0));
           }
 
           $(this).text(buttonNewText);
           var that = this;
           setTimeout(function(){
-              $(that).text("Copy");
+              $(that).text("コピー");
           }, 2000);
         }
       });
